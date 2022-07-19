@@ -11,5 +11,6 @@ export default class DView extends View {
     }
     async init(){
         this.viewElement.querySelector(".text-container").innerHTML = this.value;
+        this.end();
     }
 }
