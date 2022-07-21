@@ -10,7 +10,16 @@ export default class AView extends View {
         this.init();
     }
     async init(){
-        this.viewElement.querySelector(".text-container").innerHTML = this.value;
-        this.end();
+        const Input = Utils.createHTMLElementFromString('<input id="inputNumber" />');
+        const Button = Utils.createHTMLElementFromString('<button id="next-button">Siguiente</button>');
+
+        this.viewElement.querySelector(".text-container").appendChild(Input);
+        this.viewElement.querySelector(".text-container").appendChild(Button);
+
+        const _this = this;
+        Utils.onClickById('next-button', function(){
+            _this.end(Number(Input.value));
+        })
+        
     }
 }
