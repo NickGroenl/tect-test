@@ -5,13 +5,13 @@ import Utils from "../../../core/utils";
 
 export default class BView extends View {
     constructor(text){
-        super(html);
+        super(html)
         this.text = text;
         this.init();
     }
     async init(){
         await Utils.waitForSeconds(1);
-        const TextView = Utils.createHTMLElementFromString(`<p>${this.text}</p>`);
+        const TextView = Utils.createHTMLElementFromString(`<p class='title'>${this.text}</p>`);
         const valueAView = Utils.createHTMLElementFromString(`<p>${Number(this._inputData)}</p>`);
         const Button = Utils.createHTMLElementFromString('<button id="b-next-button">Siguiente</button>');
 

@@ -1,3 +1,5 @@
+import "./view.scss";
+
 import AView from "./view/text-view/AView"
 import BView from "./view/text-view/BView";
 import CView from "./view/text-view/CView"
@@ -12,7 +14,10 @@ export default class App {
         let AViewresponse = 0;
         if(this.finalResponse === 0) {
             AViewresponse = await (new AView("Vista A")).start();
-        } else AViewresponse = this.finalResponse;
+        } else {
+            AViewresponse = this.finalResponse;
+            this.finalResponse = 0;
+        }
         const BViewresponse = await new BView("Vista B").start(AViewresponse);
         const CViewresponse = await new CView("Vista C").start(BViewresponse);
         if(CViewresponse === -1) {
