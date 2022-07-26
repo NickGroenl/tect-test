@@ -4,13 +4,24 @@ import "./text-view..scss";
 import Utils from "../../../core/utils";
 
 export default class BView extends View {
-    constructor(props){
+    constructor(text){
         super(html);
-        this.value = props;
+        this.text = text;
         this.init();
     }
     async init(){
-        this.viewElement.querySelector(".text-container").innerHTML = '<input type="text" id="number" /> <button id="next-button">asddsdsd</button>';
-        this.end();
+        await Utils.waitForSeconds(1);
+        const TextView = Utils.createHTMLElementFromString(`<p>${this.text}</p>`);
+        const valueAView = Utils.createHTMLElementFromString(`<p>${Number(this._inputData)}</p>`);
+        const Button = Utils.createHTMLElementFromString('<button id="b-next-button">Siguiente</button>');
+
+        this.viewElement.querySelector(".text-container").appendChild(TextView);
+        this.viewElement.querySelector(".text-container").appendChild(valueAView);
+        this.viewElement.querySelector(".text-container").appendChild(Button);
+
+        const _this = this;
+        Utils.onClickById('b-next-button', function(){
+            _this.end(Number(_this._inputData) + 5);
+        })
     }
 }
