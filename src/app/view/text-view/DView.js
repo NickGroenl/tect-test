@@ -4,13 +4,24 @@ import "./text-view..scss";
 import Utils from "../../../core/utils";
 
 export default class DView extends View {
-    constructor(props){
+    constructor(text){
         super(html);
-        this.value = props;
+        this.text = text;
         this.init();
     }
     async init(){
-        this.viewElement.querySelector(".text-container").innerHTML = this.value;
-        this.end();
+        await Utils.waitForSeconds(1);
+        const TextView = Utils.createHTMLElementFromString(`<p>${this.text}</p>`);
+        const valueAView = Utils.createHTMLElementFromString(`<p>${Number(this._inputData)}</p>`);
+        const Button = Utils.createHTMLElementFromString('<button id="b-back-button">Atras</button>');
+
+        this.viewElement.querySelector(".text-container").appendChild(TextView);
+        this.viewElement.querySelector(".text-container").appendChild(valueAView);
+        this.viewElement.querySelector(".text-container").appendChild(Button);
+
+        const _this = this;
+        Utils.onClickById('b-back-button', function(){
+            _this.end(8);
+        })
     }
 }

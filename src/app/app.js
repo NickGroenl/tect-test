@@ -1,17 +1,25 @@
 import AView from "./view/text-view/AView"
 import BView from "./view/text-view/BView";
-import CView from "./view/text-view/AView"
-import DView from "./view/text-view/AView"
+import CView from "./view/text-view/CView"
+import DView from "./view/text-view/DView"
 
 export default class App {
     constructor() {
+        this.finalResponse = 0;
         this.start();
     }
     async start() {
-        const AViewresponse = await (new AView("AView")).start();
-        console.log(AViewresponse);
-        await new BView("BView").start();
-        await new CView("CView").start();
-        await new DView("DView").start();
+        let AViewresponse = 0;
+        if(this.finalResponse === 0) {
+            AViewresponse = await (new AView("Vista A")).start();
+        } else AViewresponse = this.finalResponse;
+        const BViewresponse = await new BView("Vista B").start(AViewresponse);
+        const CViewresponse = await new CView("Vista C").start(BViewresponse);
+        if(CViewresponse === -1) {
+            return this.start();
+        }
+        const DViewresponse = await new DView("Vista D").start(CViewresponse);
+        this.finalResponse = DViewresponse;
+        return this.start();
     }
 }
