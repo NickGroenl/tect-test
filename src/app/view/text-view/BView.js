@@ -10,7 +10,7 @@ export default class BView extends View {
         this.init();
     }
     async init(){
-        this.viewElement.querySelector(".text-container").innerHTML = this.value;
+        this.viewElement.querySelector(".text-container").innerHTML = '<input type="text" id="number" /> <button id="next-button">asddsdsd</button>';
         this.end();
     }
 }
