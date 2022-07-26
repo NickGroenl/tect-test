@@ -1,0 +1,92 @@
+.view {
+    width: 100%;
+    text-align: center;
+    .text-container {
+      text-align: center;
+      max-width: 200px;
+      padding: 16px;
+      #title{
+        font-size: 18px;
+        font-weight: 900;
+      }
+      button{
+       padding: 8px;
+       margin: 8px;
+       cursor: pointer !important;
+      }
+    }
+}
+.a-view{
+  .text-container{
+    background-color: pink;
+    border: 1px solid red;
+  }
+}
+.b-view{
+  .text-container{
+    background-color: rgb(125, 172, 136);
+    border: 1px solid green;
+  }
+}
+.c-view{
+  .text-container{
+    background-color: rgb(241, 255, 192);
+    border: 1px solid yellow;
+    #title{
+      color: rgb(211, 76, 188);
+      font-size: 18px;
+    }
+    #number{
+      color: red;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    #c-swap-button{
+      background-color: rgb(194, 214, 119);
+      width: 51%;
+      border: 1px solid rgb(175, 175, 36);
+    }
+    #c-reset-button{
+      background-color: rgb(214, 119, 135);
+      border: 1px solid red;
+    }
+    #c-next-button{
+      background-color: rgb(116, 98, 117);
+      border: 1px solid purple;
+    }
+  }
+
+
+  .style2{
+    background-color: rgb(192, 225, 255);
+    border: 1px solid rgb(50, 37, 235);
+    #title .style2{
+      color: rgb(211, 76, 188);
+      font-size: 18px;
+    }
+    #number .style2{
+      color: red;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    #c-swap-button .style2{
+      background-color: rgb(165, 132, 167);
+      width: 51%;
+      border: 1px solid rgb(152, 67, 173);
+    }
+    #c-reset-button .style2{
+      background-color: rgb(214, 119, 135);
+      border: 1px solid red;
+    }
+    #c-next-button .style2{
+      background-color: rgb(116, 98, 117);
+      border: 1px solid purple;
+    }
+  }
+}
+.d-view{
+  .text-container{
+    background-color: rgb(192, 207, 255);
+    border: 1px solid blue;
+  }
+}
