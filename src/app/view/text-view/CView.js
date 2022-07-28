@@ -7,12 +7,12 @@ export default class CView extends View {
     constructor(text){
         super(html);
         this.text = text;
-        this.swap = 'style1'
+        this.swap = false
         this.init();
     }
     async init(){
         await Utils.waitForSeconds(1);
-        const nextLine = Utils.createHTMLElementFromString('<div/>');
+        const nextLine = Utils.createHTMLElementFromString('<div class="style1"/>');
         const TextView = Utils.createHTMLElementFromString(`<p id="title" class='style1'>${this.text}</p>`);
         const valueAView = Utils.createHTMLElementFromString(`<p id="number" class='style1'>${Number(this._inputData)}</p>`);
         const SwapButton = Utils.createHTMLElementFromString('<button id="c-swap-button" class="style1">Swap</button>');
@@ -29,11 +29,14 @@ export default class CView extends View {
 
         const _this = this;
         Utils.onClickById('c-swap-button', function(){
-            document.getElementById('text-container').classList.add('style2');
+            const tempVar = !this.swap;
+            this.swap = !this.swap;        
             
-            document.getElementById('text-container').classList.remove('style2');
-
-
+            document.getElementById("text-container").childNodes.forEach(function(child) {
+                child.className = tempVar ? 'style2' : 'style1';
+            });
+            document.getElementById("text-container").className = 'text-container ' + (tempVar ? 'style2' : 'style1');
+            
         })
         Utils.onClickById('c-reset-button', function(){
             _this.end(-1);
