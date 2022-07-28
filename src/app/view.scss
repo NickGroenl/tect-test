@@ -29,7 +29,7 @@
   }
 }
 .c-view{
-  .text-container{
+  .text-container.style1{
     background-color: rgb(241, 255, 192);
     border: 1px solid yellow;
     #title{
@@ -57,30 +57,30 @@
   }
 
 
-  .style2{
+  .text-container.style2{
     background-color: rgb(192, 225, 255);
     border: 1px solid rgb(50, 37, 235);
-    #title .style2{
-      color: rgb(211, 76, 188);
+    #title.style2{
+      color: rgb(18, 44, 116);
       font-size: 18px;
     }
-    #number .style2{
-      color: red;
+    #number.style2{
+      color: rgb(80, 88, 168);
       font-size: 16px;
       font-weight: 700;
     }
-    #c-swap-button .style2{
+    #c-swap-button.style2{
       background-color: rgb(165, 132, 167);
       width: 51%;
       border: 1px solid rgb(152, 67, 173);
     }
-    #c-reset-button .style2{
-      background-color: rgb(214, 119, 135);
-      border: 1px solid red;
+    #c-reset-button.style2{
+      background-color: rgb(132, 170, 148);
+      border: 1px solid rgb(24, 95, 33);
     }
-    #c-next-button .style2{
-      background-color: rgb(116, 98, 117);
-      border: 1px solid purple;
+    #c-next-button.style2{
+      background-color: rgb(133, 164, 172);
+      border: 1px solid rgb(40, 61, 156);
     }
   }
 }

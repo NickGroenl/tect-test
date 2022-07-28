@@ -8,7 +8,6 @@ import DView from "./view/text-view/DView"
 export default class App {
     constructor() {
         this.finalResponse = 0;
-        this.start();
     }
     async start() {
         let AViewresponse = 0;
